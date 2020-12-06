@@ -26,8 +26,17 @@
           </li> 
     -->
           <li class="nav-item cart"><a href="login" class="nav-link"  <% if(menuActive == "dangnhap"){%>style="color : #c49b63"<%}%> >Đăng nhập/đăng ký</a></li>
-         <!-- <li class="nav-item cart"><a href="cart.html" class="nav-link"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center"><small>1</small></span></a></li> -->
+           <li class="nav-item cart">
+            <label  for="openCart" class="nav-link" style="cursor: pointer;">
+                <span class="icon icon-shopping_cart"></span>
+              <span class="bag d-flex justify-content-center align-items-center">
+                <small>1</small>
+              </span>
+            </label>
+          </li>
        </ul>
      </div>
   </div>
  </nav>
+ 
+ <%@ include file="./cart.jsp" %>
