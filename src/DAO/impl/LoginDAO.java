@@ -26,7 +26,7 @@ public class LoginDAO implements ILoginDAO{
 				register.setString(2, user.getFullname() );
 				register.setString(3, user.getEmail() );
 				register.setString(4, user.getPhone());
-				register.setString(5, user.getPassword() );
+				register.setString(5, user.getPassword());
 				
 				register.executeUpdate();
 				System.out.println("INSERT USER SUCCESS !!!");
@@ -50,18 +50,48 @@ public class LoginDAO implements ILoginDAO{
 			checkStatment.setString(1, email);
 			ResultSet result = checkStatment.executeQuery();
 			while (result.next()) {
+				if(con != null) con.close();
+				if(checkStatment != null ) checkStatment.close();
 				return false;
 			}
+			if(con != null) con.close();
+			if(checkStatment != null ) checkStatment.close();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
-	
-	public static void main(String[] args) {
-		ILoginDAO test = new LoginDAO();
-		System.out.println(test.isExistEmail("abcsasd@gmail.com"));
+
+
+	@Override
+	public User loginUser(String email, String password) {
+		Connection con = ConnectionUtil.getConnection();
+		String query = "select * from users where email = ? and password = ?";
+		if(con != null) {
+			try {
+				PreparedStatement loginStatement = con.prepareStatement(query);
+				loginStatement.setString(1, email);
+				loginStatement.setString(2, password);
+				
+				ResultSet result = loginStatement.executeQuery();
+				User user = new User();
+				while (result.next()) {
+					
+					user.setFullname(result.getString("fullname"));
+					user.setEmail(result.getString("email"));
+					user.setPhone(result.getString("phone"));
+					
+					if(con != null) con.close();
+					if(loginStatement != null ) loginStatement.close();
+					return user;
+				}
+				
+				return null;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
 	}
-	
 }

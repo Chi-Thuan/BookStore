@@ -7,11 +7,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.impl.ServiceLogin;
+
 /**
  * Servlet implementation class LoginController
  */
 @WebServlet("/LoginController")
 public class LoginController extends HttpServlet {
+	private ServiceLogin service;
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("titlePage", "Đăng Nhập/Đăng Ký");
 		request.setAttribute("menuActive","dangnhap" );

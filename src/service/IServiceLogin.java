@@ -1,9 +1,9 @@
-package DAO;
+package service;
 
 import Model.User;
 
-public interface ILoginDAO {
+public interface IServiceLogin {
+	boolean checkEmail(String email);
 	void registerUser(User user);
-	boolean isExistEmail (String email);
 	User loginUser(String email, String password);
 }

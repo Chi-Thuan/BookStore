@@ -1,7 +1,8 @@
- document.addEventListener('DOMContentLoaded', function(){
+  document.addEventListener('DOMContentLoaded', function(){
         let listTxtInputRegister = document.querySelectorAll('.wrap-form .register .txt_input')
         let btnSubmitRegister = document.querySelector('.wrap-form .register .btnRegister')
-        
+        let inputEmailFormLogin = document.querySelectorAll('.wrap-form .login input.txt_input')
+
         // set thong bao loi
         function setMessError(element, mess){
             element.parentElement.querySelector('.show-error').innerHTML =  mess
@@ -68,8 +69,6 @@
             }
         }
 
-        
-
         function checkRePassword(txtPass, txtRepass, inputElement) {
             if(txtRepass.length != 0){
                 if(txtRepass !== txtPass){
@@ -125,4 +124,9 @@
             e.stopPropagation();
         })
 
+        inputEmailFormLogin.forEach(input => {
+          input.addEventListener('keyup', function(){
+            inputEmailFormLogin[0].classList.remove('error') // chi add class error cho 1 input
+          })
+        })
       })

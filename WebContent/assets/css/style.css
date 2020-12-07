@@ -9426,6 +9426,14 @@ input[id="openFormRegister"]:checked ~ div.form-item.register {
   display: block;
 }
 
+.mess-error-login {
+  color: var(--red);
+  display: none;
+}
+
+.wrap-form .login input[name="email"].error ~ span.mess-error-login {
+  display: block;
+}
 /*==============
 GIO HANG
 ==============*/
