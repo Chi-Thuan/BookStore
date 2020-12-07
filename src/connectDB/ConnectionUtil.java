@@ -11,7 +11,7 @@ public class ConnectionUtil {
 		try {
 			Connection con;
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");  
-			String url = "jdbc:sqlserver://localhost:1433;databasename=db_test_api";
+			String url = "jdbc:sqlserver://localhost:1433;databasename=BOOKSTORE";
 			String userName = "sa";
 			String password = "123";
 			con = DriverManager.getConnection(url, userName, password);
