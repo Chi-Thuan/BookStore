@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Model.User;
+import beans.UserLoginSession;
 import service.IServiceLogin;
 import service.impl.ServiceLogin;
 
@@ -23,6 +25,9 @@ public class UserLogin extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		UserLoginSession userLogin = (UserLoginSession) session.getAttribute("userLogin");
+		
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
@@ -37,6 +42,11 @@ public class UserLogin extends HttpServlet {
 				request.setAttribute("messErrorLogin", "Sai thông tin đăng nhập");
 				request.setAttribute("emailError", email);
 				nextPage = "/jsp/user/login/index.jsp";
+			}else {
+				// add session
+				userLogin.setEmail(email);
+				userLogin.setIsLogin(true);
+				session.setAttribute("userLogin", userLogin);
 			}
 		}
 		

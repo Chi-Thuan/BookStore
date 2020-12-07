@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Model.User;
+import beans.UserLoginSession;
 import service.impl.ServiceLogin;
 
 /**
@@ -22,6 +24,8 @@ public class UserRegister extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		UserLoginSession userLogin = (UserLoginSession) session.getAttribute("userLogin");
 		
 		String fullname = request.getParameter("fullName");
 		String email = request.getParameter("email");
@@ -36,7 +40,14 @@ public class UserRegister extends HttpServlet {
 		if(login.checkEmail(email)) {
 			user.setPassword(password);
 			login.registerUser(user);
+			// set thong tin vao session
+			userLogin.setFullname(fullname);
+			userLogin.setEmail(email);
+			userLogin.setPhone(phone);
+			userLogin.setIsLogin(true);
+			session.setAttribute("userLogin", userLogin);
 		}else {
+			
 			request.setAttribute("openFormRegister", "oke");
 			request.setAttribute("userErrorRegister", user);
 			nextPage = "/jsp/user/login/index.jsp";
