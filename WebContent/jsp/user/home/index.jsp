@@ -215,17 +215,22 @@
           </div>
         </div>
         <div class="row">
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(./assets/images/menu-1.jpg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="#">Coffee Capuccino</a></h3>
-    						<p>A small river named Duden flows by their place and supplies</p>
-    						<p class="price"><span>$5.90</span></p>
-    						<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-    					</div>
-    				</div>
-        	</div>
+        
+        	<% String[] list = {"Một Mảnh Trăng", "Tony Buổi Sáng"}; %>
+        	<% for(int i = 0; i < list.length ; i ++){ %>
+	        	<div class="col-md-3">
+	        		<div class="menu-entry">
+						<a href="#" class="img" style="background-image: url(./upload/images/bia_mot-manh-trang-bia1.jpg); background-size: 190px 190px "></a>
+						<div class="text text-center pt-4">
+							<h3><a href="#"><%=list[i] %></a></h3>
+							<p>A small river named Duden flows by their place and supplies</p>
+							<p class="price"><span>$5.90</span></p>
+							<p><	a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
+						</div>	
+					</div>
+	        	</div>
+        	<%}%>
+        	
         	<div class="col-md-3">
         		<div class="menu-entry">
     					<a href="#" class="img" style="background-image: url(./assets/images/menu-2.jpg);"></a>

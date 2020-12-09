@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="Model.Category"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -5,43 +7,22 @@
   <body>
 	<%@ include file="../navigation.jsp" %>
 	<!-- END nav -->
-	
+	<%  List<Category> listCategory = (List<Category>)  request.getAttribute("listCategory"); %>
     <section class="ftco-menu my-5 pb-5">
     	<div class="container">
     		<div class="row d-md-flex">
 				<div class="col-3 sidebar">
 					<h4>PHÂN LOẠI</h4>
 					<ul style="list-style: none; padding: 0;">
-						<li>
-							<a href="#">Thiếu Nhi (13086)</a>
-						</li>
-						<li>
-							<a href="#">Giáo Khoa - Tham Khảo (6373)</a>
-						</li>
-						<li>
-							<a href="#">Văn Học (6278)</a>
-						</li>
-						<li>
-							<a href="#">Tâm Lý - Kỹ Năng Sống (4173)</a>
-						</li>
-						<li>
-							<a href="#">Manga - Comic (3750)</a>
-						</li>
-						<li>
-							<a href="#">Sách Học Ngoại Ngữ (2505)</a>
-						</li>
-						<li>
-							<a href="#">Kinh Tế (1589)</a>
-						</li>
-						<li>
-							<a href="#">Lịch Sử - Địa Lý - Tôn Giáo (1116)</a>
-						</li>
-						<li>
-							<a href="#">Khoa Học Kỹ Thuật (994)</a>
-						</li>
-						<li>
-							<a href="#">Nuôi Dạy Con (994)</a>
-						</li>
+					<% if(listCategory.size() > 0){ %>
+						<% for(int i = 0; i < listCategory.size(); i++) {%>
+							<li>
+								<a href="<%= listCategory.get(i).getSlug() %>"><%= listCategory.get(i).getName() %></a>
+							</li> 
+						<%} %>
+					<%} else{ %>
+						Không có chuyên mục
+					<%} %>
 					</ul>
 				</div>
 	    		<div class="col-9 ftco-animate">
