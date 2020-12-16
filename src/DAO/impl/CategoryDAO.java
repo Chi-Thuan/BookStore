@@ -23,7 +23,7 @@ public class CategoryDAO implements ICategoryDAO{
 				PreparedStatement statement = con.prepareStatement(query);
 				ResultSet result = statement.executeQuery();
 				while (result.next()) {
-					listCategory.add(new Category(result.getString("_id"),result.getString("name"), result.getString("slug")));
+					listCategory.add(new Category(result.getString("_id"),result.getString("nameCategory"), result.getString("slug")));
 				}
 				if(con != null) con.close();
 				if(statement != null ) statement.close();

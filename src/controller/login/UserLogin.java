@@ -42,15 +42,15 @@ public class UserLogin extends HttpServlet {
 				request.setAttribute("messErrorLogin", "Sai thông tin đăng nhập");
 				request.setAttribute("emailError", email);
 				nextPage = "/jsp/user/login/index.jsp";
+				getServletContext().getRequestDispatcher(nextPage).forward(request, response);
 			}else {
 				// add session
 				userLogin.setEmail(email);
 				userLogin.setIsLogin(true);
 				session.setAttribute("userLogin", userLogin);
+				response.sendRedirect("./home");
 			}
 		}
-		
-		getServletContext().getRequestDispatcher(nextPage).forward(request, response);
 	}
 
 }

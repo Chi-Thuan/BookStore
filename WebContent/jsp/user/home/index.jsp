@@ -1,3 +1,5 @@
+<%@page import="Model.Book"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -99,9 +101,9 @@
 				<br>
 	        </div>
 	        <div>
-					  <p>Trong cuộc đời của mỗi người, hẳn có lẽ đã trải qua ít nhất một lần vấp ngã và rồi quay đầu lại thấy có cha, có mẹ, có gia đình đứng phía sau dang rộng vòng tay đón ta trở về, sưởi ấm tâm hồn ta bằng tình yêu thương. Mỗi lần như vậy, ta lại càng thêm trân quý hơn tình thân, gia đình. Vì ngoài kia còn biết bao số phận nghiệt ngã, phải bơ vơ lạc lõng và điển hình là câu chuyện về cậu bé Rêmi trong tập tiểu thuyết "Không gia đình" của nhà văn Hector Malot.</p>
-					  <p><a href="product-single.html" class="btn btn-primary btn-outline-primary px-4 py-3">Tìm hiểu thêm</a></p>
-	  			</div>
+				  <p>Trong cuộc đời của mỗi người, hẳn có lẽ đã trải qua ít nhất một lần vấp ngã và rồi quay đầu lại thấy có cha, có mẹ, có gia đình đứng phía sau dang rộng vòng tay đón ta trở về, sưởi ấm tâm hồn ta bằng tình yêu thương. Mỗi lần như vậy, ta lại càng thêm trân quý hơn tình thân, gia đình. Vì ngoài kia còn biết bao số phận nghiệt ngã, phải bơ vơ lạc lõng và điển hình là câu chuyện về cậu bé Rêmi trong tập tiểu thuyết "Không gia đình" của nhà văn Hector Malot.</p>
+				  <p><a href="product-single.html" class="btn btn-primary btn-outline-primary px-4 py-3">Tìm hiểu thêm</a></p>
+  			</div>
   			</div>
     	</div>
     </section>
@@ -216,54 +218,22 @@
         </div>
         <div class="row">
         
-        	<% String[] list = {"Một Mảnh Trăng", "Tony Buổi Sáng"}; %>
-        	<% for(int i = 0; i < list.length ; i ++){ %>
-	        	<div class="col-md-3">
+       <% List<Book> listHotBook = (List<Book>)request.getAttribute("listHotBoook"); %>
+        <% if(listHotBook.size() != 0){ %>
+        	<% for(int i = 0; i < listHotBook.size() ;i ++ ) {%>
+        		<div class="col-md-3">
 	        		<div class="menu-entry">
-						<a href="#" class="img" style="background-image: url(./upload/images/bia_mot-manh-trang-bia1.jpg); background-size: 190px 190px "></a>
+						<a href="#" class="img" style="background-image: url(./upload/images/<%= listHotBook.get(i).getAvatar()%>); background-size: 190px 190px "></a>
 						<div class="text text-center pt-4">
-							<h3><a href="#"><%=list[i] %></a></h3>
-							<p>A small river named Duden flows by their place and supplies</p>
-							<p class="price"><span>$5.90</span></p>
-							<p><	a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
+							<h3><a href="#"><%= listHotBook.get(i).getNameBook()%></a></h3>
+							<p><%= listHotBook.get(i).getDescription() %></p>
+							<p class="price"><span><%= listHotBook.get(i).getPrice()%> VND</span></p>
+							<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
 						</div>	
 					</div>
 	        	</div>
-        	<%}%>
-        	
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(./assets/images/menu-2.jpg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="#">Coffee Capuccino</a></h3>
-    						<p>A small river named Duden flows by their place and supplies</p>
-    						<p class="price"><span>$5.90</span></p>
-    						<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-    					</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(./assets/images/menu-3.jpg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="#">Coffee Capuccino</a></h3>
-    						<p>A small river named Duden flows by their place and supplies</p>
-    						<p class="price"><span>$5.90</span></p>
-    						<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-    					</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(./assets/images/menu-4.jpg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="#">Coffee Capuccino</a></h3>
-    						<p>A small river named Duden flows by their place and supplies</p>
-    						<p class="price"><span>$5.90</span></p>
-    						<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-    					</div>
-    				</div>
-        	</div>
+        	<%} %>
+        <%}%>
         </div>
     	</div>
     </section>
