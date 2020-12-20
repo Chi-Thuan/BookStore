@@ -1,4 +1,5 @@
   document.addEventListener('DOMContentLoaded', function(){
+	  
         let listTxtInputRegister = document.querySelectorAll('.wrap-form .register .txt_input')
         let btnSubmitRegister = document.querySelector('.wrap-form .register .btnRegister')
         let inputEmailFormLogin = document.querySelectorAll('.wrap-form .login input.txt_input')
@@ -129,4 +130,4 @@
             inputEmailFormLogin[0].classList.remove('error') // chi add class error cho 1 input
           })
         })
-      })
+      })// end

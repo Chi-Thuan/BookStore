@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <jsp:useBean id="userLogin" class="beans.UserLoginSession" scope="session" />
+<jsp:useBean id="cartSession" class="beans.CartSession" scope="session" />
 
 <% String menuActive = (String) request.getAttribute("menuActive"); %>
 
@@ -31,7 +32,7 @@
             <label  for="openCart" class="nav-link" style="cursor: pointer;">
                 <span class="icon icon-shopping_cart"></span>
               <span class="bag d-flex justify-content-center align-items-center">
-                <small>0</small>
+                <small id="quantitySession"><%= cartSession.getCart().size() %></small>
               </span>
             </label>
           </li>

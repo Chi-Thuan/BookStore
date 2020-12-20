@@ -8,120 +8,29 @@
         <label for="openCart" class="close-cart">x</label>
         <h4>Giỏ hàng</h4>
         <div class="content-cart">
-          <div class="cart-item">
-            <div class="avatar-cart">
-              <img src="images/person_2.jpg" alt="">
-            </div>
-            <div class="cart-item-content">
-              <div class="name">Tôi thấy hoa vàng trên cỏ xanh  <p class="price-cart">100.000 VND</p> </div>
-              <div class="quantity">
-                <span class="btnQuantity sub">-</span>
-                <span class="content">01</span>
-                <span class="btnQuantity plus">+</span>
-              </div>
-              <div class="remove" >
-                x
-              </div>
-            </div>
-          </div>
-          <div class="cart-item">
-            <div class="avatar-cart">
-              <img src="" alt="avatar">
-            </div>
-            <div class="cart-item-content">
-              <div class="name">Tôi thấy hoa vàng trên cỏ xanh  <p class="price-cart">100.000 VND</p> </div>
-              <div class="quantity">
-                <span class="btnQuantity sub">-</span>
-                <span class="content">01</span>
-                <span class="btnQuantity plus">+</span>
-              </div>
-              <div class="remove" >
-                x
-              </div>
-            </div>
-          </div>
-          <div class="cart-item">
-            <div class="avatar-cart">
-              <img src="" alt="avatar">
-            </div>
-            <div class="cart-item-content">
-              <div class="name">Tôi thấy hoa vàng trên cỏ xanh  <p class="price-cart">100.000 VND</p> </div>
-              <div class="quantity">
-                <span class="btnQuantity sub">-</span>
-                <span class="content">01</span>
-                <span class="btnQuantity plus">+</span>
-              </div>
-              <div class="remove" >
-                x
-              </div>
-            </div>
-          </div>
-          <div class="cart-item">
-            <div class="avatar-cart">
-              <img src="" alt="avatar">
-            </div>
-            <div class="cart-item-content">
-              <div class="name">Tôi thấy hoa vàng trên cỏ xanh  <p class="price-cart">100.000 VND</p> </div>
-              <div class="quantity">
-                <span class="btnQuantity sub">-</span>
-                <span class="content">01</span>
-                <span class="btnQuantity plus">+</span>
-              </div>
-              <div class="remove" >
-                x
-              </div>
-            </div>
-          </div>
-          <div class="cart-item">
-            <div class="avatar-cart">
-              <img src="" alt="avatar">
-            </div>
-            <div class="cart-item-content">
-              <div class="name">Tôi thấy hoa vàng trên cỏ xanh  <p class="price-cart">100.000 VND</p> </div>
-              <div class="quantity">
-                <span class="btnQuantity sub">-</span>
-                <span class="content">01</span>
-                <span class="btnQuantity plus">+</span>
-              </div>
-              <div class="remove" >
-                x
-              </div>
-            </div>
-          </div>
-          <div class="cart-item">
-            <div class="avatar-cart">
-              <img src="" alt="avatar">
-            </div>
-            <div class="cart-item-content">
-              <div class="name">Tôi thấy hoa vàng trên cỏ xanh  <p class="price-cart">100.000 VND</p> </div>
-              <div class="quantity">
-                <span class="btnQuantity sub">-</span>
-                <span class="content">01</span>
-                <span class="btnQuantity plus">+</span>
-              </div>
-              <div class="remove" >
-                x
-              </div>
-            </div>
-          </div>
-          <div class="cart-item">
-            <div class="avatar-cart">
-              <img src="" alt="avatar">
-            </div>
-            <div class="cart-item-content">
-              <div class="name">Tôi thấy hoa vàng trên cỏ xanh  <p class="price-cart">100.000 VND</p> </div>
-              <div class="quantity">
-                <span class="btnQuantity sub">-</span>
-                <span class="content">01</span>
-                <span class="btnQuantity plus">+</span>
-              </div>
-              <div class="remove" >
-                x
-              </div>
-            </div>
-          </div>
-
-        
+     
+        <% if(cartSession.getCart().size() > 0) {%>
+        	<% for(int i = 0; i < cartSession.getCart().size(); i ++ ) {%>
+        	   <!-- start card -->
+        		  <div class="cart-item">
+		            <div class="avatar-cart">
+		              <img src="./upload/images/<%= cartSession.getCart().get(i).getAvatar() %>" alt="">
+		            </div>
+		            <div class="cart-item-content">
+		              <div class="name"><%= cartSession.getCart().get(i).getNameBook() %> <p class="price-cart"><%= cartSession.getCart().get(i).getPrice() %> VND</p> </div>
+		              <div class="quantity">
+		                <span class="btnQuantity sub">-</span>
+		                <span class="content"><%= cartSession.getCart().get(i).getQuantity() %></span>
+		                <span class="btnQuantity plus">+</span>
+		              </div>
+		              <div class="remove" >
+		                x
+		              </div>
+		            </div>
+		          </div>
+		       <!-- end card -->
+        	<%} %>
+        <%}%>
         </div>
         <div class="btnThanhToan">
           Thanh Toán

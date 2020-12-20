@@ -221,14 +221,14 @@
        <% List<Book> listHotBook = (List<Book>)request.getAttribute("listHotBoook"); %>
         <% if(listHotBook.size() != 0){ %>
         	<% for(int i = 0; i < listHotBook.size() ;i ++ ) {%>
-        		<div class="col-md-3">
+        		<div class="col-md-3 bookItem">
 	        		<div class="menu-entry">
-						<a href="#" class="img" style="background-image: url(./upload/images/<%= listHotBook.get(i).getAvatar()%>); background-size: 190px 190px "></a>
+						<a href="product?id=<%= listHotBook.get(i).get_id() %>" class="img" style="background-image: url(./upload/images/<%= listHotBook.get(i).getAvatar()%>); background-size: 190px 190px "></a>
 						<div class="text text-center pt-4">
-							<h3><a href="#"><%= listHotBook.get(i).getNameBook()%></a></h3>
+							<h3><a href="product?id=<%= listHotBook.get(i).get_id() %>"><%= listHotBook.get(i).getNameBook()%></a></h3>
 							<p><%= listHotBook.get(i).getDescription() %></p>
 							<p class="price"><span><%= listHotBook.get(i).getPrice()%> VND</span></p>
-							<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
+							<p><a href="#" data-id="<%= listHotBook.get(i).get_id() %>" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
 						</div>	
 					</div>
 	        	</div>
