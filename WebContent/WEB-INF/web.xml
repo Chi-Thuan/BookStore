@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>Project_BookStore</display-name>
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+  <display-name>Project_BookStore2</display-name>
+<welcome-file-list>  
+   <welcome-file>home.jsp</welcome-file>  
   </welcome-file-list>
   <servlet>
     <servlet-name>Home</servlet-name>
@@ -27,5 +27,29 @@
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>homeAdmin</servlet-name>
+    <servlet-class>admin.home</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>homeAdmin</servlet-name>
+    <url-pattern>/admin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>categoryAdmin</servlet-name>
+    <servlet-class>admin.category</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>categoryAdmin</servlet-name>
+    <url-pattern>/admin/category</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>updateBookAdmin</servlet-name>
+    <servlet-class>admin.updateBook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updateBookAdmin</servlet-name>
+    <url-pattern>/admin/updateBook</url-pattern>
   </servlet-mapping>
 </web-app>

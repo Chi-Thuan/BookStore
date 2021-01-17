@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	 /*
      * *  AJAX ADD BOOK TO CART
      */
-    let listBookItem = document.querySelectorAll('.bookItem a.btn.btn-primary.btn-outline-primary');
+    let listBookItem = document.querySelectorAll('a.btn-addToCart');
     let quantitySession = document.querySelector('#quantitySession')
     let wrap_cartSession = document.querySelector('.content-cart')
     

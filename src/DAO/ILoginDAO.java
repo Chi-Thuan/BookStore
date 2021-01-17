@@ -7,3 +7,4 @@ public interface ILoginDAO {
 	boolean isExistEmail (String email);
 	User loginUser(String email, String password);
 }
+ 

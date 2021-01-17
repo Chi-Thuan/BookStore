@@ -71,13 +71,13 @@ public class User {
 		MessageDigest digest = MessageDigest.getInstance("MD5");
 		digest.reset();
 		byte[] hash = digest.digest(password.getBytes());
-		
 		char[] hexChars = new char[hash.length *2];
 		for (int i = 0; i < hash.length; i++) {
 			int v = hash[i] & 0xFF;
 			hexChars[i*2] = hexArray[v >>> 4];
 			hexChars[i * 2 + 1] = hexArray[v & 0x0F];
 		}
+		
 		
 		return new String(hexChars);
 	}

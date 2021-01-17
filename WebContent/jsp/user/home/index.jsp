@@ -226,9 +226,9 @@
 						<a href="product?id=<%= listHotBook.get(i).get_id() %>" class="img" style="background-image: url(./upload/images/<%= listHotBook.get(i).getAvatar()%>); background-size: 190px 190px "></a>
 						<div class="text text-center pt-4">
 							<h3><a href="product?id=<%= listHotBook.get(i).get_id() %>"><%= listHotBook.get(i).getNameBook()%></a></h3>
-							<p><%= listHotBook.get(i).getDescription() %></p>
+							<p class="des-book"><%= listHotBook.get(i).getDescription() %></p>
 							<p class="price"><span><%= listHotBook.get(i).getPrice()%> VND</span></p>
-							<p><a href="#" data-id="<%= listHotBook.get(i).get_id() %>" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
+							<p><a href="#" data-id="<%= listHotBook.get(i).get_id() %>" class="btn-addToCart btn btn-primary btn-outline-primary">Add to Cart</a></p>
 						</div>	
 					</div>
 	        	</div>

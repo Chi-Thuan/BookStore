@@ -16,7 +16,6 @@ public class CartSession {
 		int indexCart = findIndex(b.get_id());
 		if(indexCart != -1) {
 			cart.get(indexCart).setQuantity(cart.get(indexCart).getQuantity() + 1);
-			System.out.println(cart.get(indexCart).getQuantity());
 		}else {
 			this.cart.add(b);
 			System.out.println("ADD ITEM ID "+ b.get_id());
