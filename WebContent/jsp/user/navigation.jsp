@@ -18,7 +18,7 @@
 	  <li class="nav-item <% if(menuActive == "tatcasanpham"){%>active<%}%>"><a href="product" class="nav-link">Tất cả sách</a></li>
 	     
 	     <% if(userLogin.getIsLogin() == true) {%>
-	     	<li class="nav-item cart"><a href="#" class="nav-link" >Xin chào, <%= userLogin.getFullname() %> </a></li>
+	     	<li class="nav-item cart"><a href="profile" class="nav-link" <% if(menuActive == "profile"){%>style="color : #c49b63"<%}%> >Xin chào, <%= userLogin.getFullname() %> </a></li>
 	     <%} else { %>
 	     	<li class="nav-item cart"><a href="login" class="nav-link"  <% if(menuActive == "dangnhap"){%>style="color : #c49b63"<%}%> >Đăng nhập/đăng ký</a></li>
 	     <%} %>

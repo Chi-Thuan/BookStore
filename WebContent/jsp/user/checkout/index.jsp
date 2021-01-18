@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="../header.jsp" %>
-<body>
+<body class="page-checkout">
 	<%@ include file="../navigation.jsp" %>
 <!-- END nav -->
 
@@ -23,8 +23,9 @@
 						        <th>Thành tiền</th>
 						      </tr>
 						    </thead>
-						    <tbody>
+						    <tbody class="wrap-list-cart-checkout">
 						    <% for(int i = 0; i < cartSession.getCart().size(); i ++ ) {%>
+						    	<% double total_row = cartSession.getCart().get(i).getPrice() * cartSession.getCart().get(i).getQuantity(); %>
 						      <tr class="text-center">
 						        <td class="product-remove">
 						        	<a href="#" style="width : 100%;height : 100%; display: flex; justify-content:center; aglin-items: center" data-type="remove" data-id="<%= cartSession.getCart().get(i).get_id() %>" class="btn-remove">x</a>
@@ -44,7 +45,7 @@
 						                <span class="btnQuantity plus"> <a href="#" data-id="<%= cartSession.getCart().get(i).get_id() %>" class="btn-addToCart">+</a></span>
 					          </td>
 						        
-						        <td class="total">$4.90</td>
+						        <td class="total"><%= total_row %> VND</td>
 						      </tr>
         					<%} %>
 						    </tbody>
@@ -56,23 +57,10 @@
     		<div class="row justify-content-end">
     			<div class="col col-lg-3 col-md-6 mt-5 cart-wrap ftco-animate">
     				<div class="cart-total mb-3">
-    					<h3>Cart Totals</h3>
-    					<p class="d-flex">
-    						<span>Subtotal</span>
-    						<span>$20.60</span>
-    					</p>
-    					<p class="d-flex">
-    						<span>Delivery</span>
-    						<span>$0.00</span>
-    					</p>
-    					<p class="d-flex">
-    						<span>Discount</span>
-    						<span>$3.00</span>
-    					</p>
+    					<h3>TỔNG CỘNG</h3>
     					<hr>
     					<p class="d-flex total-price">
-    						<span>Total</span>
-    						<span>$17.60</span>
+    						<h2><span id="total-all" style="color : #c49b63"><%= cartSession.get_total() %></span></h2>
     					</p>
     				</div>
     				<p class="text-center"><a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>

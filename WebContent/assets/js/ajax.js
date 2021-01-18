@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function(){
     
     let arrBook = []
     
-    // tang san pham
     function handling_cartSS(e){
     	e.preventDefault()
 		let url = `AddToCart?id=${this.dataset.id}&type=${this.dataset.type}`;
@@ -39,6 +38,51 @@ document.addEventListener('DOMContentLoaded', function(){
 	            </div>
 	          </div>`
 				}
+	        	let wrap_page_checkout = document.querySelector('.page-checkout')
+	        	if( wrap_page_checkout!= null ){
+	        		let wrap_list = wrap_page_checkout.querySelector('.wrap-list-cart-checkout')
+	        		wrap_list.innerHTML = ''
+        			for ( let i = 0; i < result.length; i++ ) {
+        				let total_row = result[i].price * result[i].quantity
+        				wrap_list.innerHTML += `<tr class="text-center">
+					        <td class="product-remove">
+					        	<a href="#" style="width : 100%;height : 100%; display: flex; justify-content:center; aglin-items: center" data-type="remove" data-id="${result[i]._id}" class="btn-remove">x</a>
+					        </td>
+					        
+					        <td class="image-prod"><div class="img" style="background-image:url(./upload/images/${result[i].avatar}"></div></td>
+					        
+					        <td class="product-name">
+					        	<h3>${result[i].nameBook}</h3>
+					        </td>
+					        
+					        <td class="price">${result[i].price} VND</td>
+					        
+					        <td class="quantity">
+					                <span class="btnQuantity sub"><a href="#" data-type="removeOne" data-id="${result[i]._id}" class="remove-one">-</a></span>
+					                <span class="content">${result[i].quantity}</span>
+					                <span class="btnQuantity plus"> <a href="#" data-id="${result[i]._id}" class="btn-addToCart">+</a></span>
+				          </td>
+					        
+					        <td class="total">${total_row} VND</td>
+					      </tr>`
+    				}
+	        		
+	        		let add_new_event = wrap_page_checkout.querySelectorAll('a.btn-addToCart')
+	        	 	add_new_event.forEach(item => {
+	        		 item.addEventListener('click', handling_cartSS)
+		        	 })
+		        	 let add_removeOne_event = wrap_page_checkout.querySelectorAll('a.remove-one')
+		        	 	add_removeOne_event.forEach(item => {
+		        		 item.addEventListener('click', handling_cartSS)
+		        	 })
+		        	 let add_remove_event = wrap_page_checkout.querySelectorAll('a.btn-remove')
+		        	 	add_remove_event.forEach(item => {
+		        		 item.addEventListener('click', handling_cartSS)
+		        	 })
+	        		
+	        	}
+	        	
+	        	
 	        	let add_new_event = wrap_cartSession.querySelectorAll('a.btn-addToCart')
 	        	 	add_new_event.forEach(item => {
 	        		 item.addEventListener('click', handling_cartSS)

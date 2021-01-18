@@ -61,4 +61,11 @@ public class CartSession {
 //		return null;
 	}
 	
+	public double get_total() {
+		double rs = 0;
+		for (CartItem c : cart) {
+			rs += c.getPrice() * c.getQuantity();
+		}
+		return rs;
+	}
 }

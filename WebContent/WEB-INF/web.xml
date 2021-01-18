@@ -36,6 +36,14 @@
     <servlet-name>Checkout</servlet-name>
     <url-pattern>/checkout</url-pattern>
   </servlet-mapping>
+   <servlet>
+  	<servlet-name>Profile</servlet-name>
+    <servlet-class>controller.ProfileController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Profile</servlet-name>
+    <url-pattern>/profile</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>homeAdmin</servlet-name>
     <servlet-class>admin.home</servlet-class>
