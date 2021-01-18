@@ -35,7 +35,6 @@ public class AddToCart extends HttpServlet {
 	        response.setCharacterEncoding("UTF-8");
 	        PrintWriter out = response.getWriter();	
 	        out.print(jsonCart);
-			
 		}else {
 			CartSession createCartSession = new CartSession();
 			createCartSession.getCart().add(cartItem);

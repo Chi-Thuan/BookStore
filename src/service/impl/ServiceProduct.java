@@ -24,4 +24,9 @@ public class ServiceProduct implements IServiceProduct{
 		return product.getAllBook();
 	}
 
+	@Override
+	public List<Book> getBookByCategory(String slug) {
+		return product.getBookByCategory(slug);
+	}
+
 }
