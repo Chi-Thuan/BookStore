@@ -21,7 +21,8 @@
 		              <div class="quantity">
 		                <span class="btnQuantity sub">-</span>
 		                <span class="content"><%= cartSession.getCart().get(i).getQuantity() %></span>
-		                <span class="btnQuantity plus">+</span>
+		                <span class="btnQuantity plus"> <a href="#" data-id="<%= cartSession.getCart().get(i).get_id() %>" class="btn-addToCart">+</a></span>
+		                             
 		              </div>
 		              <div class="remove" >
 		                x
