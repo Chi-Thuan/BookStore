@@ -9,7 +9,7 @@
  <div class="main-content">
         <section class="section">
           <h1 class="section-header">
-            <div>Thêm sách mới</div>
+            <div>Sửa</div>
           </h1>
 
           <div class="row">

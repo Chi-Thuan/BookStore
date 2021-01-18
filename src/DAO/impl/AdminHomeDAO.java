@@ -10,7 +10,9 @@ import java.util.List;
 //import org.eclipse.jdt.internal.compiler.batch.Main;
 
 import DAO.IAdminHomeDAO;
+import Model.Admin;
 import Model.Book;
+import Model.User;
 import connectDB.ConnectionUtil;
 
 public class AdminHomeDAO implements IAdminHomeDAO{
@@ -51,6 +53,34 @@ public class AdminHomeDAO implements IAdminHomeDAO{
 				System.out.println("ERROR GET ALL BOOK ADMIN !!!");
 				e.printStackTrace();
 				return null;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public Admin loginAdmin(String username, String pass) {
+		Connection con = ConnectionUtil.getConnection();
+		String query = "select * from users where username = ? and password = ?";
+		if(con != null) {
+			try {
+				PreparedStatement loginStatement = con.prepareStatement(query);
+				loginStatement.setString(1, username);
+				loginStatement.setString(2, pass);
+				
+				ResultSet result = loginStatement.executeQuery();
+				Admin admin = new Admin();
+				while (result.next()) {
+					admin.setFullName(result.getString("fullname"));
+					admin.setUsername(result.getString("username"));
+					admin.setType(result.getInt("type"));
+					if(con != null) con.close();
+					if(loginStatement != null ) loginStatement.close();
+					return admin;
+				}
+				return null;
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return null;

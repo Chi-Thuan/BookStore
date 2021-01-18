@@ -1,4 +1,4 @@
-package admin;
+package adminBook;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,21 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class admin
+ * Servlet implementation class LoginAdmin
  */
-@WebServlet("/admin")
-public class admin extends HttpServlet {
+@WebServlet("/LoginAdmin")
+public class LoginAdmin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.sendRedirect("/jsp/admin/login.jsp");
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	
 	}
-
 }

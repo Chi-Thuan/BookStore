@@ -44,28 +44,14 @@
     <servlet-name>Profile</servlet-name>
     <url-pattern>/profile</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>homeAdmin</servlet-name>
-    <servlet-class>admin.home</servlet-class>
+  
+   <servlet>
+  	<servlet-name>AdminTest</servlet-name>
+    <servlet-class>adminBook.AdminController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>homeAdmin</servlet-name>
-    <url-pattern>/admin</url-pattern>
+    <servlet-name>AdminTest</servlet-name>
+    <url-pattern>/adminBook</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>categoryAdmin</servlet-name>
-    <servlet-class>admin.category</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>categoryAdmin</servlet-name>
-    <url-pattern>/admin/category</url-pattern>
-  </servlet-mapping>
-    <servlet>
-    <servlet-name>updateBookAdmin</servlet-name>
-    <servlet-class>admin.updateBook</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>updateBookAdmin</servlet-name>
-    <url-pattern>/admin/updateBook</url-pattern>
-  </servlet-mapping>
+  
 </web-app>

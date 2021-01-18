@@ -93,7 +93,7 @@
                           <div class="badge badge-danger">Trash</div>
                         </td>
                         <td  class="text-center" style="width : 100px ;">
-                          <a href="../../updateBook" class="btn btn-primary btn-action" data-toggle="tooltip" title="Edit"><i class="ion ion-edit"></i></a>
+                          <a href="adminBook?typepage=updateBook" class="btn btn-primary btn-action" data-toggle="tooltip" title="Edit"><i class="ion ion-edit"></i></a>
                           <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"><i class="ion ion-trash-b"></i></a>
                           <a class="btn btn-danger btn-action" data-toggle="tooltip" title="View"><i class="ion ion-eye"></i></a>
                         </td>

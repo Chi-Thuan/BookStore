@@ -93,13 +93,13 @@
           <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>  
             <li class="active">
-              <a href="admin"><i class="ion ion-speedometer"></i><span>Danh Sách Bài Viết</span></a>
+              <a href="adminBook?typepage=listbook"><i class="ion ion-speedometer"></i><span>Danh Sách Bài Viết</span></a>
             </li>
 			<li>
-              <a href="createBook"><i class="ion ion-speedometer"></i><span>Sách Mới</span></a>
+              <a href="adminBook?typepage=addbook"><i class="ion ion-speedometer"></i><span>Sách Mới</span></a>
             </li>
             <li>
-              <a href="category"><i class="ion ion-speedometer"></i><span>Quản Lý Thể Loại</span></a>
+              <a href="adminBook?typepage=categorybook"><i class="ion ion-speedometer"></i><span>Quản Lý Thể Loại</span></a>
             </li>
            </ul>
         </aside>
