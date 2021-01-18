@@ -31,7 +31,7 @@ public class LoginAdmin extends HttpServlet {
 		Admin account = admin.loginAdmin(username, pass);
 		if(account != null) {
 			AdminSession adminSession = new AdminSession();
-			next_page = "/jsp/admin/home.jsp";
+			next_page = "/adminBook?typepage=listbook";
 			response.setCharacterEncoding("UTF-8");
 			adminSession.setFullname(account.getFullName());
 			adminSession.setType(account.getType());

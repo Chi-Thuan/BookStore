@@ -52,7 +52,8 @@
           </div>
           <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>  
-            <li <% if(active_menu.equalsIgnoreCase("listbook")) { %> class="active" <%}%>  >
+            <% if(active_menu != null) { %>
+            	<li <% if(active_menu.equalsIgnoreCase("listbook")) { %> class="active" <%}%>  >
               <a href="adminBook?typepage=listbook"><i class="ion ion-speedometer"></i><span>Danh Sách Bài Viết</span></a>
             </li>
 			<li  <% if(active_menu.equalsIgnoreCase("addbook")) { %> class="active" <%}%>  >
@@ -61,6 +62,7 @@
             <li  <% if(active_menu.equalsIgnoreCase("categorybook")) { %> class="active" <%}%> >
               <a href="adminBook?typepage=categorybook"><i class="ion ion-speedometer"></i><span>Quản Lý Thể Loại</span></a>
             </li>
+            <%} %>
            </ul>
         </aside>
       </div>
