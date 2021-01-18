@@ -148,7 +148,8 @@ document.addEventListener('DOMContentLoaded', function(){
 	            if(xhr.readyState == XMLHttpRequest.DONE){
 	            	let result = JSON.parse(this.responseText)
 	            	if(result == false){
-	            		alert('Bạn cần đăng nhập để thực hiện thao tác này')
+	            		let input_open_popup = document.querySelector('input[id="open_popup_thongBao"]')
+	            		input_open_popup.checked = true
 	            	}else{
 	                    window.location.href="checkout"
 	            	}
@@ -157,8 +158,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	        xhr.open('POST', url)
 	        xhr.send()
-    	}else{
-    		alert('Vui lòng thêm sản phẩm!')
     	}
     }
 

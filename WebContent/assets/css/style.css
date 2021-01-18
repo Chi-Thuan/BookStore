@@ -9695,3 +9695,68 @@ input[id="openCart"]:checked ~ label.overlay {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
 }
+
+body {
+    position: relative;
+}
+
+.overlay-popup {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    background-color: rgba(0, 0, 0, .5);;
+    display: none;
+}
+
+.wrap-popup_thongBao {
+    position: fixed;
+    width: 70vw;
+    height: 100vh;
+    top: 0;
+    left: 50% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%,-100%);
+    transition: all .4s;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    -ms-transition: all .4s;
+    -o-transition: all .4s;
+    z-index: 1002;
+    -webkit-transform: translate(-50%,-100%);
+    -moz-transform: translate(-50%,-100%);
+    -ms-transform: translate(-50%,-100%);
+    -o-transform: translate(-50%,-100%);
+}
+
+input[id="open_popup_thongBao"]:checked ~ .overlay-popup {
+    display: block;
+}
+
+input[id="open_popup_thongBao"]:checked ~ .wrap-popup_thongBao {
+    width: 60%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transition: all .4s;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    -ms-transition: all .4s;
+    -o-transition: all .4s;
+}
+
+.wrap-popup_thongBao .popup_thongBao {
+    width: 100%;
+    background-color: rgb(14 30 51);
+    position: relative;
+    z-index: 200000;
+}

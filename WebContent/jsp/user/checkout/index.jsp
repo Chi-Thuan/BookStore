@@ -5,6 +5,8 @@
 <body>
 	<%@ include file="../navigation.jsp" %>
 <!-- END nav -->
+
+<% if(cartSession.getCart().size() > 0) {%>
     <section class="ftco-section ftco-cart">
 			<div class="container">
 				<div class="row">
@@ -15,59 +17,42 @@
 						      <tr class="text-center">
 						        <th>&nbsp;</th>
 						        <th>&nbsp;</th>
-						        <th>Product</th>
-						        <th>Price</th>
-						        <th>Quantity</th>
-						        <th>Total</th>
+						        <th>Tên sách</th>
+						        <th>Giá</th>
+						        <th>Số lượng</th>
+						        <th>Thành tiền</th>
 						      </tr>
 						    </thead>
 						    <tbody>
+						    <% for(int i = 0; i < cartSession.getCart().size(); i ++ ) {%>
 						      <tr class="text-center">
-						        <td class="product-remove"><a href="#"><span class="icon-close"></span></a></td>
-						        
-						        <td class="image-prod"><div class="img" style="background-image:url(images/menu-2.jpg);"></div></td>
-						        
-						        <td class="product-name">
-						        	<h3>Creamy Latte Coffee</h3>
-						        	<p>Far far away, behind the word mountains, far from the countries</p>
+						        <td class="product-remove">
+						        	<a href="#" style="width : 100%;height : 100%; display: flex; justify-content:center; aglin-items: center" data-type="remove" data-id="<%= cartSession.getCart().get(i).get_id() %>" class="btn-remove">x</a>
 						        </td>
 						        
-						        <td class="price">$4.90</td>
+						        <td class="image-prod"><div class="img" style="background-image:url(./upload/images/<%= cartSession.getCart().get(i).getAvatar() %>);"></div></td>
+						        
+						        <td class="product-name">
+						        	<h3><%= cartSession.getCart().get(i).getNameBook() %></h3>
+						        </td>
+						        
+						        <td class="price"><%= cartSession.getCart().get(i).getPrice() %> VND</td>
 						        
 						        <td class="quantity">
-						        	<div class="input-group mb-3">
-					             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-					          	</div>
+						                <span class="btnQuantity sub"><a href="#" data-type="removeOne" data-id="<%= cartSession.getCart().get(i).get_id() %>" class="remove-one">-</a></span>
+						                <span class="content"><%= cartSession.getCart().get(i).getQuantity() %></span>
+						                <span class="btnQuantity plus"> <a href="#" data-id="<%= cartSession.getCart().get(i).get_id() %>" class="btn-addToCart">+</a></span>
 					          </td>
 						        
 						        <td class="total">$4.90</td>
-						      </tr><!-- END TR-->
-
-						      <tr class="text-center">
-						        <td class="product-remove"><a href="#"><span class="icon-close"></span></a></td>
-						        
-						        <td class="image-prod"><div class="img" style="background-image:url(images/dish-2.jpg);"></div></td>
-						        
-						        <td class="product-name">
-						        	<h3>Grilled Ribs Beef</h3>
-						        	<p>Far far away, behind the word mountains, far from the countries</p>
-						        </td>
-						        
-						        <td class="price">$15.70</td>
-						        
-						        <td class="quantity">
-						        	<div class="input-group mb-3">
-					             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-					          	</div>
-					          </td>
-						        
-						        <td class="total">$15.70</td>
-						      </tr><!-- END TR-->
+						      </tr>
+        					<%} %>
 						    </tbody>
 						  </table>
 					  </div>
     			</div>
     		</div>
+    		
     		<div class="row justify-content-end">
     			<div class="col col-lg-3 col-md-6 mt-5 cart-wrap ftco-animate">
     				<div class="cart-total mb-3">
@@ -95,5 +80,7 @@
     		</div>
 			</div>
 		</section>
-
+      <%}else{%>
+      	 <section class="ftco-section ftco-cart container"><h2>Không có sản phẩm</h2></section>
+      <%}%>
 <%@ include file="../footer.jsp" %>

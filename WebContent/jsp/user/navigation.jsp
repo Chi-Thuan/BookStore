@@ -18,13 +18,7 @@
 	  <li class="nav-item <% if(menuActive == "tatcasanpham"){%>active<%}%>"><a href="product" class="nav-link">Tất cả sách</a></li>
 	     
 	     <% if(userLogin.getIsLogin() == true) {%>
-	     <li class="nav-item dropdown">
-	     <a class="nav-link dropdown-toggle iconUserLogin" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-user"></span></a>
-	          <div class="dropdown-menu" aria-labelledby="dropdown04">
-	          	<a class="dropdown-item" href="#">Tài Khoản</a>
-	            <a class="dropdown-item" href="login">Đăng xuất</a>
-	          </div>
-	     </li>
+	     	<li class="nav-item cart"><a href="#" class="nav-link" >Xin chào, <%= userLogin.getFullname() %> </a></li>
 	     <%} else { %>
 	     	<li class="nav-item cart"><a href="login" class="nav-link"  <% if(menuActive == "dangnhap"){%>style="color : #c49b63"<%}%> >Đăng nhập/đăng ký</a></li>
 	     <%} %>

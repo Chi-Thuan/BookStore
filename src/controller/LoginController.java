@@ -19,7 +19,7 @@ public class LoginController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		session.invalidate();
+		session.removeAttribute("userLogin");
 		
 		request.setAttribute("titlePage", "Đăng Nhập/Đăng Ký");
 		request.setAttribute("menuActive","dangnhap" );

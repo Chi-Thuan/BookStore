@@ -45,6 +45,7 @@ public class UserLogin extends HttpServlet {
 				getServletContext().getRequestDispatcher(nextPage).forward(request, response);
 			}else {
 				// add session
+				userLogin.setFullname(user.getFullname());
 				userLogin.setEmail(email);
 				userLogin.setIsLogin(true);
 				session.setAttribute("userLogin", userLogin);
