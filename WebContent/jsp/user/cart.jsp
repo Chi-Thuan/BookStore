@@ -19,13 +19,13 @@
 		            <div class="cart-item-content">
 		              <div class="name"><%= cartSession.getCart().get(i).getNameBook() %> <p class="price-cart"><%= cartSession.getCart().get(i).getPrice() %> VND</p> </div>
 		              <div class="quantity">
-		                <span class="btnQuantity sub">-</span>
+		                <span class="btnQuantity sub"><a href="#" data-type="removeOne" data-id="<%= cartSession.getCart().get(i).get_id() %>" class="remove-one">-</a></span>
 		                <span class="content"><%= cartSession.getCart().get(i).getQuantity() %></span>
 		                <span class="btnQuantity plus"> <a href="#" data-id="<%= cartSession.getCart().get(i).get_id() %>" class="btn-addToCart">+</a></span>
 		                             
 		              </div>
 		              <div class="remove" >
-		                x
+		                 <a href="#" style="width : 100%;height : 100%; display: flex; justify-content:center; aglin-items: center" data-type="remove" data-id="<%= cartSession.getCart().get(i).get_id() %>" class="btn-remove">x</a>
 		              </div>
 		            </div>
 		          </div>

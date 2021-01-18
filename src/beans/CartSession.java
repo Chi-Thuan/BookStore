@@ -22,9 +22,18 @@ public class CartSession {
 		}
 	}
 	
+	public void remove_one(CartItem b) {
+		int indexCart = findIndex(b.get_id());
+		cart.get(indexCart).setQuantity(cart.get(indexCart).getQuantity() - 1);
+		if(cart.get(indexCart).getQuantity() == 0) {
+			cart.remove(indexCart);
+		}
+	}
+	
 	public void remove(CartItem b) {
+		int indexCart = findIndex(b.get_id());
 		System.out.println("REMOVE ITEM ID "+ b.get_id());
-		cart.remove(b);
+		cart.remove(indexCart);
 	}
 
 	public List<CartItem> getCart() {

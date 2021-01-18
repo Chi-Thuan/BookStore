@@ -29,6 +29,14 @@
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
   <servlet>
+  	<servlet-name>Checkout</servlet-name>
+    <servlet-class>controller.CheckoutController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Checkout</servlet-name>
+    <url-pattern>/checkout</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>homeAdmin</servlet-name>
     <servlet-class>admin.home</servlet-class>
   </servlet>

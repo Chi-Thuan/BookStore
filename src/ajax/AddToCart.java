@@ -26,19 +26,43 @@ public class AddToCart extends HttpServlet {
 		CartSession cartSession = (CartSession) session.getAttribute("cartSession");
 		cart = new ServiceCart();
 		String _id = request.getParameter("id");
+		String type = request.getParameter("type");
 		CartItem cartItem = cart.findCart(_id);
-		if (cartSession != null ) {
-			cartSession.add(cartItem);
-			session.setAttribute("cartSession", cartSession);
-			String jsonCart = new Gson().toJson(cartSession);
-			response.setContentType("application/json");
-	        response.setCharacterEncoding("UTF-8");
-	        PrintWriter out = response.getWriter();	
-	        out.print(jsonCart);
-		}else {
-			CartSession createCartSession = new CartSession();
-			createCartSession.getCart().add(cartItem);
-			session.setAttribute("cartSession", cartSession);			
+		
+		switch (type) {
+			case "remove":
+				cartSession.remove(cartItem);
+				session.setAttribute("cartSession", cartSession);
+				String json2 = new Gson().toJson(cartSession);
+				response.setContentType("application/json");
+		        response.setCharacterEncoding("UTF-8");
+		        PrintWriter out2 = response.getWriter();	
+		        out2.print(json2);
+				break;
+			case "removeOne":
+				cartSession.remove_one(cartItem);
+				session.setAttribute("cartSession", cartSession);
+				String json = new Gson().toJson(cartSession);
+				response.setContentType("application/json");
+		        response.setCharacterEncoding("UTF-8");
+		        PrintWriter out1 = response.getWriter();	
+		        out1.print(json);
+				break;
+			default:
+				if (cartSession != null ) {
+					cartSession.add(cartItem);
+					session.setAttribute("cartSession", cartSession);
+					String jsonCart = new Gson().toJson(cartSession);
+					response.setContentType("application/json");
+			        response.setCharacterEncoding("UTF-8");
+			        PrintWriter out = response.getWriter();	
+			        out.print(jsonCart);
+				}else {
+					CartSession createCartSession = new CartSession();
+					createCartSession.getCart().add(cartItem);
+					session.setAttribute("cartSession", cartSession);			
+				}
+				break;
 		}
 	}
 }

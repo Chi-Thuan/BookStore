@@ -2,15 +2,18 @@ document.addEventListener('DOMContentLoaded', function(){
 	 /*
      * *  AJAX ADD BOOK TO CART
      */
-    let listBookItem = document.querySelectorAll('a.btn-addToCart');
+    let listBookItem = document.querySelectorAll('a.btn-addToCart')
     let quantitySession = document.querySelector('#quantitySession')
     let wrap_cartSession = document.querySelector('.content-cart')
+    let listBtnRemove = document.querySelectorAll('a.btn-remove')
+    let listBtnRemoveOne = document.querySelectorAll('a.remove-one')
     
     let arrBook = []
     
+    // tang san pham
     function handling_cartSS(e){
     	e.preventDefault()
-		let url = `AddToCart?id=${this.dataset.id}`;
+		let url = `AddToCart?id=${this.dataset.id}&type=${this.dataset.type}`;
 	    let xhr = new XMLHttpRequest();
 	    
 	    xhr.onreadystatechange = function() {
@@ -26,23 +29,31 @@ document.addEventListener('DOMContentLoaded', function(){
 	            <div class="cart-item-content">
 	              <div class="name">${result[i].nameBook} <p class="price-cart">${result[i].price} VND</p> </div>
 	              <div class="quantity">
-	                <span class="btnQuantity sub">-</span>
+	                <span class="btnQuantity sub"><a href="#" data-type="removeOne" data-id="${result[i]._id}" class="remove-one">-</a></span>
 	                <span class="content">${result[i].quantity}</span>
 	                <span class="btnQuantity plus"><a href="#" data-id="${result[i]._id}" class="btn-addToCart">+</a></span>
 	              </div>
 	              <div class="remove" >
-	                x
+	                <a href="#" style="width : 100%;height : 100%; display: flex; justify-content:center; aglin-items: center" data-type="remove"  data-id="${result[i]._id}" class="btn-remove">x</a>
 	              </div>
 	            </div>
 	          </div>`
 				}
 	        	let add_new_event = wrap_cartSession.querySelectorAll('a.btn-addToCart')
-	        	 add_new_event.forEach(item => {
+	        	 	add_new_event.forEach(item => {
+	        		 item.addEventListener('click', handling_cartSS)
+	        	 })
+	        	 let add_removeOne_event = wrap_cartSession.querySelectorAll('a.remove-one')
+	        	 	add_removeOne_event.forEach(item => {
+	        		 item.addEventListener('click', handling_cartSS)
+	        	 })
+	        	 let add_remove_event = wrap_cartSession.querySelectorAll('a.btn-remove')
+	        	 	add_remove_event.forEach(item => {
 	        		 item.addEventListener('click', handling_cartSS)
 	        	 })
 	        }
 	    }
-	
+	    
 	    xhr.open('POST', url)
 	    xhr.send()
     }
@@ -50,6 +61,14 @@ document.addEventListener('DOMContentLoaded', function(){
     listBookItem.forEach( bookItem => {
     	bookItem.addEventListener('click', handling_cartSS )
     })
+    
+    listBtnRemove.forEach( bookItem => {
+    	bookItem.addEventListener('click', handling_cartSS )
+    })
+    
+    listBtnRemoveOne.forEach( bookItem => {
+    	bookItem.addEventListener('click', handling_cartSS )})
+    
     
     /*
      *	LOAD MORE 
@@ -131,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	            	if(result == false){
 	            		alert('Bạn cần đăng nhập để thực hiện thao tác này')
 	            	}else{
-	                    window.location.href="product"
+	                    window.location.href="checkout"
 	            	}
 	            }
 	        }
