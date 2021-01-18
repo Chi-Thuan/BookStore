@@ -61,7 +61,7 @@ public class AdminHomeDAO implements IAdminHomeDAO{
 	@Override
 	public Admin loginAdmin(String username, String pass) {
 		Connection con = ConnectionUtil.getConnection();
-		String query = "select * from users where username = ? and password = ?";
+		String query = "select * from admin where username = ? and password = ?";
 		if(con != null) {
 			try {
 				PreparedStatement loginStatement = con.prepareStatement(query);

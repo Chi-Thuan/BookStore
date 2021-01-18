@@ -26,25 +26,26 @@ public class AdminController extends HttpServlet {
 				String next_page = "/jsp/admin/home.jsp";
 				String type_page = request.getParameter("typepage");
 				switch (type_page) {
-				case "listbook":
-					next_page = "/jsp/admin/home.jsp";
-					
-					break;
-				case "addbook":
-					next_page = "/jsp/admin/createBook.jsp";
-					
-					break;
-				case "categorybook":
-					next_page = "/jsp/admin/category.jsp";	
-					
-					break;
-				case "updateBook":
-					next_page = "/jsp/admin/updateBook.jsp";	
-					
-					break;
-				default:
-					break;
+					case "listbook":
+						next_page = "/jsp/admin/home.jsp";
+						break;
+					case "addbook":
+						next_page = "/jsp/admin/createBook.jsp";
+						
+						break;
+					case "categorybook":
+						next_page = "/jsp/admin/category.jsp";	
+						
+						break;
+					case "updateBook":
+						next_page = "/jsp/admin/updateBook.jsp";	
+						
+						break;
+					default:
+						break;
 				}
+				String active_menu = type_page;
+				request.setAttribute("active_menu", active_menu);
 				getServletContext().getRequestDispatcher(next_page).forward(request, response);
 			}
 		}

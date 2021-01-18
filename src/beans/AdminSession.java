@@ -2,11 +2,12 @@ package beans;
 
 public class AdminSession {
 	private String fullname;
-	private String phone;
-	private String email;
+	private int type;
+	private String username;
 	private boolean isLogin = false;
 	
-	public AdminSession() {}
+	public AdminSession() {
+	}
 
 	public String getFullname() {
 		return fullname;
@@ -16,27 +17,27 @@ public class AdminSession {
 		this.fullname = fullname;
 	}
 
-	public String getPhone() {
-		return phone;
+	public int getType() {
+		return type;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setType(int type) {
+		this.type = type;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public boolean getIsLogin() {
+	public boolean isLogin() {
 		return isLogin;
 	}
 
-	public void setIsLogin(boolean isLogin) {
+	public void setLogin(boolean isLogin) {
 		this.isLogin = isLogin;
 	}
 }
