@@ -36,6 +36,7 @@ public class UserLogin extends HttpServlet {
 		if(login.checkEmail(email)){
 			request.setAttribute("messErrorLogin", "Tài khoản không tồn tại");
 			nextPage = "/jsp/user/login/index.jsp";
+			getServletContext().getRequestDispatcher(nextPage).forward(request, response);
 		}else {
 			User user = login.loginUser(email, password);
 			if(user == null) {
@@ -49,7 +50,7 @@ public class UserLogin extends HttpServlet {
 				userLogin.setEmail(email);
 				userLogin.setIsLogin(true);
 				session.setAttribute("userLogin", userLogin);
-				response.sendRedirect("./home");
+				response.sendRedirect("home");
 			}
 		}
 	}

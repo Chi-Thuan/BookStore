@@ -140,27 +140,13 @@
 	  
 	  let wrap_page_checkout = document.querySelector('.page-checkout')
 	  if(wrap_page_checkout != null) {
-		  let total_all= wrap_page_checkout.querySelector('#total-all')
-		  let checkout_item = wrap_page_checkout.querySelectorAll('.checkout-item')
+		  let btn_submit= wrap_page_checkout.querySelector('.btn-submit-thanhtoan')
 		  
 		  function handling_checkout(){
-			  console.log('okie')
+			  alert('Thanh Toán Thành Công')
 		  }
 		  
-		  function renderTotalAll(){
-			  total_all.innerHTML = ''
-			  checkout_item.forEach(item => {
-				  total_all.innerHTML += item.querySelector('.total').innerHTML
-			  })
-			  total_all.innerHTML += ' VND'
-		  }
-		  
-		  renderTotalAll()
-		  
-		  checkout_item.forEach(item => {
-			 item.querySelector('.quantity_checkout').addEventListener('')
-		  })
-		  
+		  btn_submit.addEventListener('click', handling_checkout )
 	  }
 	  
  })// end

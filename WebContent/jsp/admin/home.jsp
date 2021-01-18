@@ -11,7 +11,7 @@
       
 <%@ include file="./components/navigation.jsp" %>
 <!-- - -->
-<% List<Book> getAllBook = (List<Book>) request.getAttribute("getAllBook"); %>
+<% List<Book> listAllBook = (List<Book>) request.getAttribute("listAllBook"); %>
       <div class="main-content">
         <section class="section">
           <h1 class="section-header">
@@ -28,7 +28,7 @@
                     <h4>Tổng số lượng sách</h4>
                   </div>
                   <div class="card-body">
-                    10
+                    <%= listAllBook.size() %>
                   </div>
                 </div>
               </div>
@@ -70,156 +70,35 @@
                       </tr>
 
                       <!-- row 1-->
-                      <tr>
-                        <td style="width: 10px" class="text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
-                            <label for="checkbox-1" class="custom-control-label"></label>
-                          </div>
-                        </td>
-                        <td style="width : 15% ;">Tuyệt chiêu tìm bạn bốn phương có số điện thoại nhanh chóng, dễ dàng</td>
-                        <td style="width : 30% ;">
-                          Tìm bạn bốn phương có số điện thoại sẽ nhanh chóng và dễ dàng khi bạn có một cuộc gặp bên ngoài với đối phương để làm quen, tạo mối quan hệ. Hiện nay, đã có một cộng đồng VIP dành dành cho người độc thân có sự nghiệp. Bạn tham gia sẽ có cơ hội được kết bạn với những chàng trai cô gái có ngoại hình và thu nhập trên mức khá. Cùng tìm hiểu về cộng đồng tìm bạn mới nhất này nhé.
-                        </td>
-                        <td  class="text-center" style="width : 80px ;">
-                          Nguyễn Huỳnh Văn Lê Minh
-                        </td>
-                        <td  class="text-center" style="width : 70px ;  ">2018-01-20</td>
-                        <td  class="text-center" style="width : 90px;">
-                          <div class="badge badge-success">Public, Index</div> <br>
-                          <div class="badge badge-info my-1">Public, No Index</div> <br>
-                          <div class="badge badge-warning text-dark my-1">Redirect, No Index</div> <br>
-                          <div class="badge badge-secondary my-1">Private, No Index</div> <br>
-                          <div class="badge badge-danger">Trash</div>
-                        </td>
-                        <td  class="text-center" style="width : 100px ;">
-                          <a href="adminBook?typepage=updateBook" class="btn btn-primary btn-action" data-toggle="tooltip" title="Edit"><i class="ion ion-edit"></i></a>
-                          <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"><i class="ion ion-trash-b"></i></a>
-                          <a class="btn btn-danger btn-action" data-toggle="tooltip" title="View"><i class="ion ion-eye"></i></a>
-                        </td>
-                      </tr>
-
-                      <!-- end row 1 -->
-                      <!-- row 2 -->
-                      <!-- row 1-->
-                      <tr>
-                        <td style="width: 10px" class="text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
-                            <label for="checkbox-1" class="custom-control-label"></label>
-                          </div>
-                        </td>
-                        <td style="width : 15% ;">Tuyệt chiêu tìm bạn bốn phương có số điện thoại nhanh chóng, dễ dàng</td>
-                        <td style="width : 30% ;">
-                          Tìm bạn bốn phương có số điện thoại sẽ nhanh chóng và dễ dàng khi bạn có một cuộc gặp bên ngoài với đối phương để làm quen, tạo mối quan hệ. Hiện nay, đã có một cộng đồng VIP dành dành cho người độc thân có sự nghiệp. Bạn tham gia sẽ có cơ hội được kết bạn với những chàng trai cô gái có ngoại hình và thu nhập trên mức khá. Cùng tìm hiểu về cộng đồng tìm bạn mới nhất này nhé.
-                        </td>
-                        <td  class="text-center" style="width : 80px ;">
-                          Nguyễn Huỳnh Văn Lê Minh
-                        </td>
-                        <td  class="text-center" style="width : 70px ;  ">2018-01-20</td>
-                        <td  class="text-center" style="width : 90px;">
-                           <div class="badge badge-success">Public, Index</div> <br>
-                          <div class="badge badge-info my-1">Public, No Index</div> <br>
-                          <div class="badge badge-warning text-dark my-1">Redirect, No Index</div> <br>
-                          <div class="badge badge-secondary my-1">Private, No Index</div> <br>
-                          <div class="badge badge-danger">Trash</div>
-                        </td>
-                        <td  class="text-center" style="width : 100px ;">
-                          <a class="btn btn-primary btn-action" data-toggle="tooltip" title="Edit"><i class="ion ion-edit"></i></a>
-                          <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"><i class="ion ion-trash-b"></i></a>
-                          <a class="btn btn-danger btn-action" data-toggle="tooltip" title="View"><i class="ion ion-eye"></i></a>
-                        </td>
-                      </tr>
-                      
-                       <!-- row 1-->
-                       <tr>
-                        <td style="width: 10px" class="text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
-                            <label for="checkbox-1" class="custom-control-label"></label>
-                          </div>
-                        </td>
-                        <td style="width : 15% ;">Tuyệt chiêu tìm bạn bốn phương có số điện thoại nhanh chóng, dễ dàng</td>
-                        <td style="width : 30% ;">
-                          Tìm bạn bốn phương có số điện thoại sẽ nhanh chóng và dễ dàng khi bạn có một cuộc gặp bên ngoài với đối phương để làm quen, tạo mối quan hệ. Hiện nay, đã có một cộng đồng VIP dành dành cho người độc thân có sự nghiệp. Bạn tham gia sẽ có cơ hội được kết bạn với những chàng trai cô gái có ngoại hình và thu nhập trên mức khá. Cùng tìm hiểu về cộng đồng tìm bạn mới nhất này nhé.
-                        </td>
-                        <td  class="text-center" style="width : 80px ;">
-                          Nguyễn Huỳnh Văn Lê Minh
-                        </td>
-                        <td  class="text-center" style="width : 70px ;  ">2018-01-20</td>
-                        <td  class="text-center" style="width : 90px;">
-                           <div class="badge badge-success">Public, Index</div> <br>
-                          <div class="badge badge-info my-1">Public, No Index</div> <br>
-                          <div class="badge badge-warning text-dark my-1">Redirect, No Index</div> <br>
-                          <div class="badge badge-secondary my-1">Private, No Index</div> <br>
-                          <div class="badge badge-danger">Trash</div>
-                        </td>
-                        <td  class="text-center" style="width : 100px ;">
-                          <a class="btn btn-primary btn-action" data-toggle="tooltip" title="Edit"><i class="ion ion-edit"></i></a>
-                          <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"><i class="ion ion-trash-b"></i></a>
-                          <a class="btn btn-danger btn-action" data-toggle="tooltip" title="View"><i class="ion ion-eye"></i></a>
-                        </td>
-                      </tr>
-
-                       <!-- row 1-->
-                       <tr>
-                        <td style="width: 10px" class="text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
-                            <label for="checkbox-1" class="custom-control-label"></label>
-                          </div>
-                        </td>
-                        <td style="width : 15% ;">Tuyệt chiêu tìm bạn bốn phương có số điện thoại nhanh chóng, dễ dàng</td>
-                        <td style="width : 30% ;">
-                          Tìm bạn bốn phương có số điện thoại sẽ nhanh chóng và dễ dàng khi bạn có một cuộc gặp bên ngoài với đối phương để làm quen, tạo mối quan hệ. Hiện nay, đã có một cộng đồng VIP dành dành cho người độc thân có sự nghiệp. Bạn tham gia sẽ có cơ hội được kết bạn với những chàng trai cô gái có ngoại hình và thu nhập trên mức khá. Cùng tìm hiểu về cộng đồng tìm bạn mới nhất này nhé.
-                        </td>
-                        <td  class="text-center" style="width : 80px ;">
-                          Nguyễn Huỳnh Văn Lê Minh
-                        </td>
-                        <td  class="text-center" style="width : 70px ;  ">2018-01-20</td>
-                        <td  class="text-center" style="width : 90px;">
-                           <div class="badge badge-success">Public, Index</div> <br>
-                          <div class="badge badge-info my-1">Public, No Index</div> <br>
-                          <div class="badge badge-warning text-dark my-1">Redirect, No Index</div> <br>
-                          <div class="badge badge-secondary my-1">Private, No Index</div> <br>
-                          <div class="badge badge-danger">Trash</div>
-                        </td>
-                        <td  class="text-center" style="width : 100px ;">
-                          <a class="btn btn-primary btn-action" data-toggle="tooltip" title="Edit"><i class="ion ion-edit"></i></a>
-                          <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"><i class="ion ion-trash-b"></i></a>
-                          <a class="btn btn-danger btn-action" data-toggle="tooltip" title="View"><i class="ion ion-eye"></i></a>
-                        </td>
-                      </tr>
-
-                       <!-- row 1-->
-                       <tr>
-                        <td style="width: 10px" class="text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
-                            <label for="checkbox-1" class="custom-control-label"></label>
-                          </div>
-                        </td>
-                        <td style="width : 15% ;">Tuyệt chiêu tìm bạn bốn phương có số điện thoại nhanh chóng, dễ dàng</td>
-                        <td style="width : 30% ;">
-                          Tìm bạn bốn phương có số điện thoại sẽ nhanh chóng và dễ dàng khi bạn có một cuộc gặp bên ngoài với đối phương để làm quen, tạo mối quan hệ. Hiện nay, đã có một cộng đồng VIP dành dành cho người độc thân có sự nghiệp. Bạn tham gia sẽ có cơ hội được kết bạn với những chàng trai cô gái có ngoại hình và thu nhập trên mức khá. Cùng tìm hiểu về cộng đồng tìm bạn mới nhất này nhé.
-                        </td>
-                        <td  class="text-center" style="width : 80px ;">
-                          Nguyễn Huỳnh Văn Lê Minh
-                        </td>
-                        <td  class="text-center" style="width : 70px ;  ">2018-01-20</td>
-                        <td  class="text-center" style="width : 90px;">
-                           <div class="badge badge-success">Public, Index</div> <br>
-                          <div class="badge badge-info my-1">Public, No Index</div> <br>
-                          <div class="badge badge-warning text-dark my-1">Redirect, No Index</div> <br>
-                          <div class="badge badge-secondary my-1">Private, No Index</div> <br>
-                          <div class="badge badge-danger">Trash</div>
-                        </td>
-                        <td  class="text-center" style="width : 100px ;">
-                          <a class="btn btn-primary btn-action" data-toggle="tooltip" title="Edit"><i class="ion ion-edit"></i></a>
-                          <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"><i class="ion ion-trash-b"></i></a>
-                          <a class="btn btn-danger btn-action" data-toggle="tooltip" title="View"><i class="ion ion-eye"></i></a>
-                        </td>
-                      </tr>
+                      <% for(int i = 0; i <listAllBook.size() ; i ++ ) {%>
+	                      <tr>
+	                        <td style="width: 10px" class="text-center">
+	                          <div class="custom-checkbox custom-control">
+	                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
+	                            <label for="checkbox-1" class="custom-control-label"></label>
+	                          </div>
+	                        </td>
+	                        <td style="width : 15% ;"><%= listAllBook.get(i).getNameBook() %></td>
+	                        <td style="display: -webkit-box;
+							    -webkit-box-orient: vertical;
+							    /* width: 30%; */
+							    -webkit-line-clamp: 4;
+							    overflow: hidden;
+							    line-height: 36px;"><%= listAllBook.get(i).getDescription() %></td>
+	                        <td  class="text-center" style="width : 80px ;">
+	                         <%= listAllBook.get(i).getNameCategory() %>
+	                        </td>
+	                        <td  class="text-center" style="width : 70px ;  "><%= listAllBook.get(i).getPrice()%> VND</td>
+	                        <td  class="text-center" style="width : 90px;">
+	                         	<%= listAllBook.get(i).getQuantity()%>
+	                        </td>
+	                        <td  class="text-center" style="width : 200px ;">
+	                          <a href="adminBook?typepage=updateBook" class="btn btn-primary btn-action" data-toggle="tooltip" title="Edit"><i class="ion ion-edit"></i></a>
+	                          <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"><i class="ion ion-trash-b"></i></a>
+	                          <a class="btn btn-danger btn-action" data-toggle="tooltip" title="View"><i class="ion ion-eye"></i></a>
+	                        </td>
+	                      </tr>
+                      <%} %>
                     </table>
                   </div>
                 </div>

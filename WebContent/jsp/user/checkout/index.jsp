@@ -24,9 +24,11 @@
 						      </tr>
 						    </thead>
 						    <tbody class="wrap-list-cart-checkout">
+						    <% double rs = 0; %>
 						    <% for(int i = 0; i < cartSession.getCart().size(); i ++ ) {%>
 						    	<% double total_row = cartSession.getCart().get(i).getPrice() * cartSession.getCart().get(i).getQuantity(); %>
-						      <tr class="text-center">
+						      	<% rs += total_row;   %>
+						      <tr class="text-center checkout-item">
 						        <td class="product-remove">
 						        	<a href="#" style="width : 100%;height : 100%; display: flex; justify-content:center; aglin-items: center" data-type="remove" data-id="<%= cartSession.getCart().get(i).get_id() %>" class="btn-remove">x</a>
 						        </td>
@@ -60,10 +62,10 @@
     					<h3>TỔNG CỘNG</h3>
     					<hr>
     					<p class="d-flex total-price">
-    						<h2><span id="total-all" style="color : #c49b63"><%= cartSession.get_total() %></span></h2>
+    						<h2><span id="total-all" style="color : #c49b63"><%= rs %> VND</span></h2>
     					</p>
     				</div>
-    				<p class="text-center"><a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
+    				<p class="text-center"><a href="#" class="btn btn-submit-thanhtoan btn-primary py-3 px-4">Thanh Toán</a></p>
     			</div>
     		</div>
 			</div>

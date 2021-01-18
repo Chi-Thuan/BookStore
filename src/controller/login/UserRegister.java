@@ -46,14 +46,15 @@ public class UserRegister extends HttpServlet {
 			userLogin.setPhone(phone);
 			userLogin.setIsLogin(true);
 			session.setAttribute("userLogin", userLogin);
+			response.sendRedirect("home");
 		}else {
-			
+			nextPage = "/jsp/user/login/index.jsp";
 			request.setAttribute("openFormRegister", "oke");
 			request.setAttribute("userErrorRegister", user);
-			nextPage = "/jsp/user/login/index.jsp";
+			getServletContext().getRequestDispatcher(nextPage).forward(request, response);
 		}
 		
-		getServletContext().getRequestDispatcher(nextPage).forward(request, response);
+	
 	}
 
 }

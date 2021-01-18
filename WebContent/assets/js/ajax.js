@@ -41,9 +41,12 @@ document.addEventListener('DOMContentLoaded', function(){
 	        	let wrap_page_checkout = document.querySelector('.page-checkout')
 	        	if( wrap_page_checkout!= null ){
 	        		let wrap_list = wrap_page_checkout.querySelector('.wrap-list-cart-checkout')
+	        		let total_all= wrap_page_checkout.querySelector('#total-all')
+	        		let rs = 0;
 	        		wrap_list.innerHTML = ''
         			for ( let i = 0; i < result.length; i++ ) {
         				let total_row = result[i].price * result[i].quantity
+        				rs += total_row
         				wrap_list.innerHTML += `<tr class="text-center">
 					        <td class="product-remove">
 					        	<a href="#" style="width : 100%;height : 100%; display: flex; justify-content:center; aglin-items: center" data-type="remove" data-id="${result[i]._id}" class="btn-remove">x</a>
@@ -60,12 +63,15 @@ document.addEventListener('DOMContentLoaded', function(){
 					        <td class="quantity">
 					                <span class="btnQuantity sub"><a href="#" data-type="removeOne" data-id="${result[i]._id}" class="remove-one">-</a></span>
 					                <span class="content">${result[i].quantity}</span>
+					                <input type="text" class="onchange_input" hidden value="${result[i].quantity}">
 					                <span class="btnQuantity plus"> <a href="#" data-id="${result[i]._id}" class="btn-addToCart">+</a></span>
 				          </td>
 					        
 					        <td class="total">${total_row} VND</td>
 					      </tr>`
     				}
+	        		
+	        		total_all.innerHTML = rs + " VND"
 	        		
 	        		let add_new_event = wrap_page_checkout.querySelectorAll('a.btn-addToCart')
 	        	 	add_new_event.forEach(item => {

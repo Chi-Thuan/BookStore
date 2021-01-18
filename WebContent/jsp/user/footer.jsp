@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <footer class="ftco-footer ftco-section img">
 	<div class="overlay"></div>
 	<div class="container">
@@ -5,8 +8,7 @@
 			<div class="col-lg-3 col-md-6 mb-5 mb-md-5">
 				<div class="ftco-footer-widget mb-4">
 					<h2 class="ftco-heading-2">About Us</h2>
-					<p>Far far away, behind the word mountains, far from the
-						countries Vokalia and Consonantia, there live the blind texts.</p>
+					<p>Lầu 5, 387-389 Hai Bà Trưng Quận 3 TP HCMCông Ty Cổ Phần Phát Hành Sách TP HCM - FAHASA60 - 62 Lê Lợi, Quận 1, TP. HCM, Việt NamFahasa.com nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng cũng như tất cả Hệ Thống Fahasa trên toàn quốc.</p>
 					<ul
 						class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
 						<li class="ftco-animate"><a href="#"><span

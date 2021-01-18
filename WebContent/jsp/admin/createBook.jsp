@@ -1,3 +1,5 @@
+<%@page import="Model.Category"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -6,6 +8,7 @@
   <div id="app">
     <div class="main-wrapper">
 <%@ include file="./components/navigation.jsp" %>
+<% List<Category> listCategory = (List<Category>) request.getAttribute("listCategory"); %>
  <div class="main-content">
         <section class="section">
           <h1 class="section-header">
@@ -47,13 +50,13 @@
                                 <div class="form-group d-flex justify-content-between col-12" >
                                     <h6 class="m-0 col-3">Chuyên mục</h6>
                                     <select name="category" class="form-control">
-                                        <option value="0">category 01</option>
-                                        <option value="1">category 02</option>
-                                        <option value="2">category 03</option>
-                                        <option value="3">category 04</option>
-                                        <option value="4">category 05</option>
+                                    	<% if(listCategory != null)  {%>
+                                    		<% for(int i = 0; i < listCategory.size(); i ++ ) {%>
+                                    			<option value="<%= listCategory.get(i).get_id()  %>"><%= listCategory.get(i).getName() %></option>
+                                    		<%} %>
+                                    	<%} %>
                                     </select>
-                                    <span class="btn btn-primary btn-sm col-1 d-flex justify-content-center align-items-center ml-2" data-toggle="modal" data-target="#exampleModalCenter">Thêm</span>
+                                   <!--  <span class="btn btn-primary btn-sm col-1 d-flex justify-content-center align-items-center ml-2" data-toggle="modal" data-target="#exampleModalCenter">Thêm</span>  -->
                                 </div>
                             </div>
 
@@ -94,7 +97,13 @@
                           <div class="row">
                             <div class="form-group d-flex  justify-content-between col-12" >
                                 <h6 class="m-0 col-3">Nhà Xuất bản</h6>
-                                <input name="nxb" type="text" min="1000" placeholder="Nhập nhà xuất bản sách" class="form-control p-2">
+	                               <select name="nxb" class="form-control">
+	                                    	<% if(listCategory != null)  {%>
+	                                    		<% for(int i = 0; i < listCategory.size(); i ++ ) {%>
+	                                    			<option value="<%= listCategory.get(i).get_id()  %>"><%= listCategory.get(i).getName() %></option>
+	                                    		<%} %>
+	                                    	<%} %>
+                                    </select>
                             </div>
                         </div>
 

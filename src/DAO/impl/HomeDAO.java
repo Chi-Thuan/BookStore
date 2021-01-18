@@ -17,7 +17,7 @@ public class HomeDAO implements IHomeDAO{
 	public List<Book> getListHotBook() {
 		Connection con = ConnectionUtil.getConnection();
 		if(con != null) {
-			String query = "select b._id, b.avatar, b.nameBook, b.price, cate.nameCategory, b.description, b.quantity, t_nxb.nameNXB, auth.nameAuthor, b.countBuy, b.createAt from\r\n" + 
+			String query = "select top 8 b._id, b.avatar, b.nameBook, b.price, cate.nameCategory, b.description, b.quantity, t_nxb.nameNXB, auth.nameAuthor, b.countBuy, b.createAt from\r\n" + 
 					"book b JOIN category cate ON b.id_category = cate._id\r\n" + 
 					"JOIN author auth ON b.id_author = auth._id\r\n" + 
 					"JOIN nxb t_nxb ON b.id_nxb = t_nxb._id";
