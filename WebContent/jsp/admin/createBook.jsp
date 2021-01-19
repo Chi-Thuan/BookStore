@@ -1,3 +1,4 @@
+<%@page import="Model.NXB"%>
 <%@page import="Model.Category"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -9,6 +10,7 @@
     <div class="main-wrapper">
 <%@ include file="./components/navigation.jsp" %>
 <% List<Category> listCategory = (List<Category>) request.getAttribute("listCategory"); %>
+<% List<NXB> listNXB = (List<NXB>) request.getAttribute("listNXB"); %>
  <div class="main-content">
         <section class="section">
           <h1 class="section-header">
@@ -17,7 +19,8 @@
 
           <div class="row">
             <div class="col-12">
-                <form action="">
+                <form action="adminBook" method="GET">
+                <input name="typepage" value="addbook" hidden />
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -42,7 +45,13 @@
                             <div class="row">
                                 <div class="form-group d-flex justify-content-between col-12" >
                                     <h6 class="m-0 col-3">Hình đại diện</h6>
-                                    <textarea name="content" placeholder="Nhập nội dung sách" class="col-9 form-control" rows="4"></textarea>
+                                    <div class="col-9 pl-0">
+                                     <label for="add_avatar" style="display :  block; width : 190px !important; height : 190px; border : 1px solid silver;  cursor: pointer; ">
+                                    	<img src="" alt="no Image" style="width : 100%; height : 100% ; object-fit: cover;" />
+                                    	<input type="file" id="add_avatar" accept="image/*" hidden >
+                                    </label>
+                                    </div>
+                                   
                                 </div>
                             </div>
 
@@ -98,9 +107,9 @@
                             <div class="form-group d-flex  justify-content-between col-12" >
                                 <h6 class="m-0 col-3">Nhà Xuất bản</h6>
 	                               <select name="nxb" class="form-control">
-	                                    	<% if(listCategory != null)  {%>
-	                                    		<% for(int i = 0; i < listCategory.size(); i ++ ) {%>
-	                                    			<option value="<%= listCategory.get(i).get_id()  %>"><%= listCategory.get(i).getName() %></option>
+	                                    	<% if(listNXB!= null)  {%>
+	                                    		<% for(int i = 0; i < listNXB.size(); i ++ ) {%>
+	                                    			<option value="<%= listNXB.get(i).get_id()  %>"><%= listNXB.get(i).getName() %></option>
 	                                    		<%} %>
 	                                    	<%} %>
                                     </select>

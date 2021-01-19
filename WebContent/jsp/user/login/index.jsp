@@ -20,6 +20,7 @@
 	                    <input type="radio" name="formLoginAndRegister" id="openFormRegister" hidden />
 					<%}%>
 
+					<!------------------------------------- LOGIN ---------------------------------------->
                     <div class="login form-item py-4 d-flex flex-column align-items-center">
                         <h4 class="title pb-3">Login</h4>
                         <form action="UserLogin" method="POST">
@@ -35,6 +36,7 @@
                         <p class="wrap-openRegister mt-3">Nếu chưa có tài khoản, vui lòng <label for="openFormRegister" class="openFormRegister">Đăng ký</label></p>
                     </div>
 
+					<!------------------------------------- REGISTER ---------------------------------------->
                     <div class="register form-item py-4 d-flex flex-column align-items-center">
                         <h4 class="title pb-3">Register</h4>
                         <form action="UserRegister" method="POST">

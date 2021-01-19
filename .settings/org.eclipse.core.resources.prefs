@@ -2,6 +2,7 @@ eclipse.preferences.version=1
 encoding//WebContent/jsp/user/footer.jsp=UTF-8
 encoding//WebContent/jsp/user/home/index.jsp=UTF-8
 encoding//WebContent/jsp/user/navigation.jsp=UTF-8
+encoding//src/DAO/impl/AdminHomeDAO.java=UTF-8
 encoding//src/DAO/impl/LoginDAO.java=UTF-8
 encoding//src/controller/CheckoutController.java=UTF-8
 encoding//src/controller/HomeController.java=UTF-8

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import Model.Book;
 import Model.Category;
+import Model.NXB;
 import beans.AdminSession;
 import service.IServiceAdminHome;
 import service.IServiceCategory;
@@ -46,7 +47,22 @@ public class AdminController extends HttpServlet {
 					case "addbook":
 						category = new ServiceCategory();
 						List<Category> listCategory = category.getAllCategory();
+						List<NXB> listNXB = admin.listNxb();
 						request.setAttribute("listCategory", listCategory);
+						request.setAttribute("listNXB", listNXB);
+						
+						String nameBook = request.getParameter("nameBook");
+						if(nameBook != null) {
+							String des =  request.getParameter("description");
+							String id_category = request.getParameter("category");
+							double price = Double.parseDouble(request.getParameter("price"));
+							String id_nxb = request.getParameter("nxb");
+							String id_author = request.getParameter("191990c9-6877-489c-93a9-c31679d9a904");
+							int quantity = Integer.parseInt(request.getParameter("quantity"));
+							String avatar = "";
+							admin.insertBook(avatar, nameBook, price, id_category, des, quantity, id_nxb, id_author);
+						}
+						
 						next_page = "/jsp/admin/createBook.jsp";
 						break;
 					case "categorybook":

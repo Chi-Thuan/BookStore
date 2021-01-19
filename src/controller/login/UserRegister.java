@@ -38,6 +38,7 @@ public class UserRegister extends HttpServlet {
 		User user = new User(fullname, email, phone);
 
 		if(login.checkEmail(email)) {
+			// them tai khoan
 			user.setPassword(password);
 			login.registerUser(user);
 			// set thong tin vao session
@@ -48,6 +49,7 @@ public class UserRegister extends HttpServlet {
 			session.setAttribute("userLogin", userLogin);
 			response.sendRedirect("home");
 		}else {
+			// email da duoc su dung
 			nextPage = "/jsp/user/login/index.jsp";
 			request.setAttribute("openFormRegister", "oke");
 			request.setAttribute("userErrorRegister", user);

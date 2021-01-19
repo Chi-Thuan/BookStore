@@ -144,6 +144,17 @@
 		  
 		  function handling_checkout(){
 			  alert('Thanh Toán Thành Công')
+			  	let url = 'ClearCart';
+			    let xhr = new XMLHttpRequest()
+	
+			    xhr.onreadystatechange = function(){
+			      if(xhr.readyState == XMLHttpRequest.DONE) {
+			    	  window.location.href="checkout"
+			      }
+			    }
+	
+			    xhr.open('POST', url)
+			    xhr.send()
 		  }
 		  
 		  btn_submit.addEventListener('click', handling_checkout )
